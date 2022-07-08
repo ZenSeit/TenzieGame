@@ -2,6 +2,7 @@ import "../Stylesheets/main.css";
 import Button from "./Button";
 import Die from "./Die";
 import { useState, useEffect } from "react";
+import Confetti from 'react-confetti'
 
 export default function Main({}) {
   const [refNumber, setRefNumber] = useState(0);
@@ -109,7 +110,7 @@ export default function Main({}) {
 
   return (
     <main className="main-game">
-      {!gameState && <div className="title--game">Game Over</div>}
+      {!gameState && <div className="title--game">Game Over <Confetti /></div>}
       {gameState && refNumber ===0 && (<div className="present--game">Welcome to my Game. You need to match generated big number with above dice.<br/>If you need new numbers press play button</div>)}
       {refNumber !== 0 && <div className="scopenumber--game">{refNumber}</div>}
       <div className="numbers--game">{dice}</div>
