@@ -14,7 +14,7 @@ export default function Main({}) {
 
 
   /**
-   * Effect that create json to fill dies. It executes first time only
+   * Effect that create json to fill dice. It executes first time only
    */
   useEffect(() => {
     let arrayNums = [];
@@ -43,7 +43,7 @@ export default function Main({}) {
 
   /**
    * Function that starts game. It generates random number to start setting ref number State and Game State. But if
-   * player doesn't have numbers to match it generates new nums only on dies with classmode === false
+   * player doesn't have numbers to match it generates new nums only on dice with classmode === false
    */
   const numbeRand = () => {
     if (refNumber === 0) {
@@ -96,7 +96,7 @@ export default function Main({}) {
     }
   };
 
-  const dies = numbers.map((num, idx) => (
+  const dice = numbers.map((num, idx) => (
     <Die
       key={idx}
       id={idx}
@@ -110,9 +110,9 @@ export default function Main({}) {
   return (
     <main className="main-game">
       {!gameState && <div className="title--game">Game Over</div>}
-      {gameState && refNumber ===0 && (<div className="present--game">Welcome to my Game. You need to match generated big number with above dies.<br/>If you need new numbers press play button</div>)}
+      {gameState && refNumber ===0 && (<div className="present--game">Welcome to my Game. You need to match generated big number with above dice.<br/>If you need new numbers press play button</div>)}
       {refNumber !== 0 && <div className="scopenumber--game">{refNumber}</div>}
-      <div className="numbers--game">{dies}</div>
+      <div className="numbers--game">{dice}</div>
 
       {gameState && (
         <Button activate={numbeRand} name="Play" state={stateButton} />
