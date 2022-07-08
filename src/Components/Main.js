@@ -12,6 +12,10 @@ export default function Main({}) {
 
   const [numbers, setNumbers] = useState([]);
 
+
+  /**
+   * Effect that create json to fill dies. It executes first time only
+   */
   useEffect(() => {
     let arrayNums = [];
     for (let i = 0; i < 10; i++) {
@@ -39,7 +43,7 @@ export default function Main({}) {
 
   /**
    * Function that starts game. It generates random number to start setting ref number State and Game State. But if
-   * player doesn't have numbers to match it generates news only on dies with classmode === false
+   * player doesn't have numbers to match it generates new nums only on dies with classmode === false
    */
   const numbeRand = () => {
     if (refNumber === 0) {
@@ -68,6 +72,9 @@ export default function Main({}) {
     return Math.floor(Math.random() * (6 - 1) + 1);
   };
 
+  /**
+   * Function to reset game, create a new json of data and set Game state
+   */
   const resetGame = () => {
     let arrayNums = [];
     for (let i = 0; i < 10; i++) {
@@ -77,6 +84,8 @@ export default function Main({}) {
     setGameState(true);
   };
 
+
+  
   const handleClickDie = (e, id) => {
     if (parseInt(e.target.textContent) === refNumber) {
       setNumbers((num) =>
